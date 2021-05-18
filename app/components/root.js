@@ -1,14 +1,21 @@
 import React from 'react'
+import {Route, Link} from 'react-router-dom'
+import AllCandy from './AllCandy'
 
 const Root = () => {
+
+
   return (
     <div>
       <nav>
-        Goodie Bag
+        <ul>
+          <li>All Candy</li>
+          <li>Home</li>
+        </ul>
       </nav>
       <main>
         <h1>Welcome to the Goodie Bag!</h1>
-        <p>What a nice home page for your goodies!</p>
+        <Route exact path="/candies" component={AllCandy} />
       </main>
     </div>
   )

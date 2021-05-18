@@ -2,6 +2,11 @@
 
 const router = require('express').Router()
 
+//this part is what sets up /api/candies to the candy.js file
+router.use('/candies', require('./candy'));
+
+router.use('/candies', router)
+
 // Your routes go here!
 // NOTE: Any routes that you put here are ALREADY mounted on `/api`
 // You can put all routes in this file HOWEVER,
@@ -18,6 +23,7 @@ const router = require('express').Router()
 // but you DON'T have a corresponding router, this piece of
 // middleware will generate a 404, and send it to your
 // error-handling endware!
+
 router.use((req, res, next) => {
   const err = new Error('API route not found!')
   err.status = 404
